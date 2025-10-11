@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Band Beanz NFT Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script>
+      // JSON-LD structured data
+      const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Band Beanz",
+        description:
+          "A unique NFT collection offering exclusive utility for music lovers and concert-goers.",
+        url: "https://bandbeanz.io",
+        logo: "https://bandbeanz.io/logo.png",
+        sameAs: [
+          "https://twitter.com/bandbeanz",
+          "https://discord.gg/bandbeanz",
+          "https://opensea.io/collection/bandbeanz",
+        ],
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add JSON-LD to document head
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.text = JSON.stringify(jsonLd);
+        document.head.appendChild(script);
+      });
+    </script>
+    <style>
+      :root {
+        --bg-primary: #0b0b0f;
+        --bg-surface: #12121a;
+        --text-primary: #edeff6;
+        --text-secondary: rgba(237, 239, 246, 0.7);
+        --text-tertiary: rgba(237, 239, 246, 0.5);
+        --accent-purple: #7b61ff;
+        --accent-purple-light: rgba(123, 97, 255, 0.1);
+        --accent-green: #22f7a9;
+        --accent-green-light: rgba(34, 247, 169, 0.1);
+        --accent-magenta: #ff3dae;
+        --accent-magenta-light: rgba(255, 61, 174, 0.1);
+        --accent-cyan: #34d2ff;
+        --accent-cyan-light: rgba(52, 210, 255, 0.1);
+        --border-color: rgba(42, 42, 56, 0.5);
+        --border-radius: 20px;
+        --border-radius-sm: 12px;
+        --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);
+        --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        font-weight: 400;
+      }
+
+      /* Typography Scale */
+      h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+
+      h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+
+      h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      p {
+        font-size: 1.125rem;
+        font-weight: 400;
+        color: var(--text-secondary);
+      }
+
+      .text-sm {
+        font-size: 0.875rem;
+      }
+
+      .text-lg {
+        font-size: 1.25rem;
+      }
+
+      /* Background effects */
+      .bg-blobs {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.15;
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .blob-1 {
+        width: 600px;
+        height: 600px;
+        background: var(--accent-purple);
+        top: -150px;
+        left: -150px;
+        animation-delay: 0s;
+      }
+
+      .blob-2 {
+        width: 700px;
+        height: 700px;
+        background: var(--accent-green);
+        bottom: -250px;
+        right: -150px;
+        animation-delay: 5s;
+      }
+
+      .blob-3 {
+        width: 500px;
+        height: 500px;
+        background: var(--accent-magenta);
+        bottom: 30%;
+        left: 35%;
+        animation-delay: 10s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(30px, -50px) scale(1.05);
+        }
+        66% {
+          transform: translate(-20px, 20px) scale(0.95);
+        }
+      }
+
+      /* Glass panel effect */
+      .glass-panel {
+        background: rgba(18, 18, 26, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* Header styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      header.scrolled {
+        background: rgba(18, 18, 26, 0.9);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 5%;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          var(--accent-purple),
+          var(--accent-cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+        font-size: 1rem;
+      }
+
+      nav a:hover {
+        color: var(--text-primary);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-green);
+        transition: var(--transition);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .wallet-btn {
+        background: linear-gradient(
+          135deg,
+          var(--accent-purple),
+          var(--accent-magenta)
+        );
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .wallet-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Hero section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 6rem 2rem 4rem;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-green),
+          var(--accent-cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        max-width: 700px;
+        margin-bottom: 2.5rem;
+        color: var(--text-secondary);
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.25rem;
+        margin-bottom: 3rem;
+      }
+
+      .primary-btn {
+        background: linear-gradient(
+          135deg,
+          var(--accent-purple),
+          var(--accent-magenta)
+        );
+        color: white;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.125rem;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .primary-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .secondary-btn {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.125rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .secondary-btn:hover {
+        border-color: var(--accent-green);
+        color: var(--accent-green);
+        box-shadow: 0 0 15px rgba(34, 247, 169, 0.2);
+      }
+
+      /* Feature callout */
+      .feature-callout {
+        padding: 3rem 2rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .feature-card {
+        composes: glass-panel;
+        padding: 4rem;
+        max-width: 1000px;
+        text-align: center;
+        position: relative;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+      }
+
+      .feature-card h2 {
+        font-size: 2.75rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent-green);
+      }
+
+      .feature-card p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+      }
+
+      .mascot {
+        position: absolute;
+        width: 140px;
+        height: auto;
+        opacity: 0.8;
+      }
+
+      .mascot-left {
+        top: -50px;
+        left: -50px;
+      }
+
+      .mascot-right {
+        bottom: -50px;
+        right: -50px;
+      }
+
+      /* Traits section */
+      .traits {
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-purple),
+          var(--accent-magenta)
+        );
+        border-radius: 2px;
+      }
+
+      .traits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .trait-card {
+        composes: glass-panel;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .trait-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .trait-image {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: var(--border-radius-sm);
+        margin-bottom: 1.5rem;
+        object-fit: cover;
+      }
+
+      .trait-name {
+        font-size: 1.375rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .trait-desc {
+        font-size: 1rem;
+        color: var(--text-secondary);
+      }
+
+      /* Utility section */
+      .utility {
+        padding: 6rem 2rem;
+      }
+
+      .utility-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .utility-card {
+        composes: glass-panel;
+        padding: 3rem;
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .utility-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .utility-card h3 {
+        font-size: 2rem;
+        margin-bottom: 1.25rem;
+        color: var(--accent-cyan);
+      }
+
+      .utility-card p {
+        margin-bottom: 2rem;
+        font-size: 1.125rem;
+      }
+
+      .utility-image {
+        width: 100%;
+        border-radius: var(--border-radius-sm);
+        margin-top: 1.5rem;
+      }
+
+      .badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: var(--accent-purple);
+        border-radius: 0 var(--border-radius) 0 var(--border-radius-sm);
+        color: white;
+      }
+
+      /* Roadmap section */
+      .roadmap {
+        padding: 6rem 2rem;
+        position: relative;
+      }
+
+      .timeline {
+        max-width: 1200px;
+        margin: 4rem auto 0;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          var(--accent-purple),
+          var(--accent-magenta)
+        );
+        border-radius: 2px;
+      }
+
+      .milestone {
+        width: 45%;
+        padding: 2.5rem;
+        composes: glass-panel;
+        margin-bottom: 3rem;
+        position: relative;
+        transition: var(--transition);
+      }
+
+      .milestone:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .milestone:nth-child(odd) {
+        margin-left: auto;
+      }
+
+      .milestone::after {
+        content: "";
+        position: absolute;
+        top: 2.5rem;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--accent-green);
+        box-shadow: 0 0 0 6px rgba(34, 247, 169, 0.3);
+        z-index: 1;
+      }
+
+      .milestone:nth-child(even)::after {
+        right: -12px;
+      }
+
+      .milestone:nth-child(odd)::after {
+        left: -12px;
+      }
+
+      .milestone h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+        color: var(--accent-green);
+      }
+
+      .milestone ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .milestone li {
+        margin-bottom: 0.75rem;
+        color: var(--text-secondary);
+      }
+
+      /* FAQ section */
+      .faq {
+        padding: 6rem 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .accordion {
+        margin-top: 3rem;
+      }
+
+      .accordion-item {
+        composes: glass-panel;
+        margin-bottom: 1.25rem;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .accordion-item:hover {
+        box-shadow: var(--shadow-sm);
+      }
+
+      .accordion-header {
+        padding: 1.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--transition);
+        font-size: 1.125rem;
+      }
+
+      .accordion-header:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .accordion-content {
+        padding: 0 1.75rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .accordion-content.active {
+        padding: 0 1.75rem 1.75rem;
+        max-height: 500px;
+      }
+
+      /* Team section */
+      .team {
+        padding: 6rem 2rem;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 3rem auto 0;
+      }
+
+      .team-card {
+        composes: glass-panel;
+        padding: 2.5rem;
+        text-align: center;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+      }
+
+      .team-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .team-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 1.5rem;
+        border: 4px solid var(--accent-purple);
+      }
+
+      .team-name {
+        font-size: 1.375rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .team-bio {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.25rem;
+      }
+
+      .social-links a {
+        color: var(--text-secondary);
+        transition: var(--transition);
+        font-size: 1.25rem;
+      }
+
+      .social-links a:hover {
+        color: var(--accent-cyan);
+      }
+
+      /* Footer */
+      footer {
+        padding: 5rem 2rem 2.5rem;
+        composes: glass-panel;
+        border-top: 1px solid var(--border-color);
+        border-radius: 0;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto 3rem;
+      }
+
+      .footer-brand h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-purple),
+          var(--accent-cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .footer-brand p {
+        font-size: 1rem;
+      }
+
+      .footer-links h4 {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: var(--transition);
+        font-size: 1rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-green);
+      }
+
+      .footer-social h4 {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+      }
+
+      .footer-social-links {
+        display: flex;
+        gap: 1.25rem;
+      }
+
+      .footer-social-links a {
+        color: var(--text-secondary);
+        font-size: 1.5rem;
+        transition: var(--transition);
+      }
+
+      .footer-social-links a:hover {
+        color: var(--accent-magenta);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--border-color);
+        max-width: 1200px;
+        margin: 0 auto;
+        color: var(--text-tertiary);
+        font-size: 0.875rem;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 1024px) {
+        h1 {
+          font-size: 3.5rem;
+        }
+
+        h2 {
+          font-size: 2.5rem;
+        }
+
+        .utility-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr 1fr;
+          gap: 2.5rem;
+        }
+        nav ul {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.75rem;
+        }
+
+        h2 {
+          font-size: 2.25rem;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .feature-card {
+          padding: 2.5rem 2rem;
+        }
+
+        .mascot {
+          display: none;
+        }
+
+        .utility-card {
+          padding: 2rem;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 2rem;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .milestone {
+          width: calc(100% - 40px);
+          margin-left: 40px;
+        }
+
+        .milestone:nth-child(odd) {
+          margin-left: 40px;
+        }
+
+        .milestone::after {
+          left: -30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 2.25rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .hero {
+          padding: 5rem 1.5rem 3rem;
+        }
+
+        .feature-callout,
+        .traits,
+        .utility,
+        .roadmap,
+        .faq,
+        .team {
+          padding: 4rem 1.5rem;
+        }
+
+        .feature-card,
+        .utility-card,
+        .milestone,
+        .team-card {
+          padding: 1.75rem;
+        }
+
+        .traits-grid {
+          grid-template-columns: 1fr;
+        }
+      } /* ===== NAVBAR ONLY: polished glass + better link states ===== */
+
+      /* Header glass & subtle shadow */
+      header {
+        background: rgba(18, 18, 26, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* On scroll: slightly denser glass (keeps your .scrolled behavior) */
+      header.scrolled {
+        background: rgba(18, 18, 26, 0.85);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Desktop nav spacing & hover underline tuned to accents */
+      nav ul {
+        gap: 2rem; /* a bit tighter */
+      }
+
+      nav a {
+        color: var(--text-secondary);
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        position: relative;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-purple),
+          var(--accent-green)
+        );
+        border-radius: 2px;
+        transition: var(--transition);
+      }
+
+      nav a:hover {
+        color: var(--text-primary);
+      }
+
+      nav a:hover::after,
+      nav a.is-active::after {
+        /* add .is-active to the current section link in HTML/JS */
+        width: 100%;
+      }
+
+      /* Keyboard focus ring for accessibility */
+      nav a:focus-visible {
+        outline: 2px solid var(--accent-cyan);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      /* Wallet button: keep your gradient, add focus */
+      .wallet-btn:focus-visible {
+        outline: 2px solid var(--accent-green);
+        outline-offset: 3px;
+      }
+
+      /* Mobile menu button: larger tap target, subtle glow on hover */
+      .mobile-menu-btn {
+        padding: 0.25rem;
+        line-height: 1;
+        border-radius: 10px;
+      }
+      .mobile-menu-btn:hover {
+        box-shadow: 0 0 0 6px rgba(123, 97, 255, 0.12);
+      }
+      .mobile-menu-btn:focus-visible {
+        outline: 2px solid var(--accent-purple);
+        outline-offset: 3px;
+        border-radius: 10px;
+      }
+
+      /* ===== MOBILE NAV (<=1024px): slide-down glass panel) ===== */
+      @media (max-width: 1024px) {
+        /* Turn the <nav> into a floating panel */
+        nav {
+          position: absolute;
+          top: 100%;
+          right: 5%;
+          left: 5%;
+          background: rgba(18, 18, 26, 0.85);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border: 1px solid var(--border-color);
+          border-radius: var(--border-radius);
+          box-shadow: var(--shadow-lg);
+          transform: translateY(-10px);
+          opacity: 0;
+          pointer-events: none;
+          transition: var(--transition);
+        }
+
+        /* When you toggle, add .active to <nav> in JS */
+        nav.active {
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        /* Vertical list */
+        nav ul {
+          display: flex !important; /* override your original 'display: none' */
+          flex-direction: column;
+          padding: 1rem;
+          gap: 0.5rem;
+        }
+
+        nav li {
+          border-radius: var(--border-radius-sm);
+        }
+
+        nav a {
+          display: block;
+          padding: 0.875rem 1rem;
+          border-radius: var(--border-radius-sm);
+          color: var(--text-primary);
+        }
+
+        /* Active/hover row highlight */
+        nav a:hover,
+        nav a.is-active {
+          background: linear-gradient(
+            135deg,
+            var(--accent-purple-light),
+            var(--accent-green-light)
+          );
+        }
+
+        /* Hide wallet on mobile if needed (keeps header clean) */
+        .wallet-btn {
+          display: none;
+        }
+      }
+
+      /* ===== OPTIONAL: tiny header height normalization on very small screens ===== */
+      @media (max-width: 480px) {
+        header {
+          padding: 1rem 5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background blobs -->
+    <div class="bg-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+      <div class="logo">Band Beanz</div>
+      <nav>
+        <ul>
+          <li><a href="#traits">NFTs</a></li>
+          <li><a href="#utility">Utility</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav>
+      <button class="wallet-btn" id="connectWallet">
+        <i class="ri-wallet-3-line"></i>
+        <span>Connect Wallet</span>
+      </button>
+      <button class="mobile-menu-btn">
+        <i class="ri-menu-line"></i>
+      </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <h1>The Beanz are here. ROCK ON.</h1>
+      <p>
+        Own a piece of music history with our exclusive NFT collection that
+        gives you access to real-world concerts and experiences.
+      </p>
+      <div class="cta-buttons">
+        <button class="primary-btn" onclick="scrollToSection('traits')">
+          Start Exploring
+        </button>
+        <button class="secondary-btn" onclick="scrollToSection('roadmap')">
+          View Roadmap
+        </button>
+      </div>
+    </section>
+
+    <!-- Feature Callout -->
+    <section class="feature-callout">
+      <div class="feature-card glass-panel">
+        <img
+          src="https://placehold.co/140x140/7B61FF/EDEFF6?text=BB"
+          alt="Band Beanz Mascot"
+          class="mascot mascot-left"
+        />
+        <h2>NFTs that let you book concerts</h2>
+        <p>
+          Each Band Beanz NFT acts as a lifetime pass to exclusive concerts,
+          backstage experiences, and music events. Holders get early access to
+          ticket sales and special perks at venues worldwide.
+        </p>
+        <img
+          src="https://placehold.co/140x140/22F7A9/12121A?text=BB"
+          alt="Band Beanz Mascot"
+          class="mascot mascot-right"
+        />
+      </div>
+    </section>
+
+    <!-- Traits Section -->
+    <section class="traits" id="traits">
+      <h2 class="section-title">The Beautiful Beanz</h2>
+      <div class="traits-grid">
+        <!-- Trait 1 -->
+        <div class="trait-card">
+          <img
+            src="https://placehold.co/300x300/12121A/7B61FF?text=Left+Hand"
+            alt="Left Hand Trait"
+            class="trait-image"
+          />
+          <h3 class="trait-name">Left Hand</h3>
+          <p class="trait-desc">
+            Unique gestures and accessories for each NFT's left hand.
+          </p>
+        </div>
+
+        <!-- Trait 2 -->
+        <div class="trait-card">
+          <img
+            src="https://placehold.co/300x300/12121A/22F7A9?text=Mouth"
+            alt="Mouth Trait"
+            class="trait-image"
+          />
+          <h3 class="trait-name">Mouth</h3>
+          <p class="trait-desc">
+            Expressive mouths ranging from smiles to rockstar screams.
+          </p>
+        </div>
+
+        <!-- Trait 3 -->
+        <div class="trait-card">
+          <img
+            src="https://placehold.co/300x300/12121A/FF3DAE?text=Outfit"
+            alt="Outfit Trait"
+            class="trait-image"
+          />
+          <h3 class="trait-name">Outfit</h3>
+          <p class="trait-desc">
+            Rockstar outfits inspired by music legends and modern artists.
+          </p>
+        </div>
+
+        <!-- Trait 4 -->
+        <div class="trait-card">
+          <img
+            src="https://placehold.co/300x300/12121A/34D2FF?text=Shoes"
+            alt="Shoes Trait"
+            class="trait-image"
+          />
+          <h3 class="trait-name">Shoes</h3>
+          <p class="trait-desc">
+            Footwear that ranges from classic boots to futuristic designs.
+          </p>
+        </div>
+
+        <!-- Trait 5 -->
+        <div class="trait-card">
+          <img
+            src="https://placehold.co/300x300/12121A/7B61FF?text=Right+Hand"
+            alt="Right Hand Trait"
+            class="trait-image"
+          />
+          <h3 class="trait-name">Right Hand</h3>
+          <p class="trait-desc">
+            Instruments, microphones, and other accessories for the right hand.
+          </p>
+        </div>
+
+        <!-- Trait 6 -->
+        <div class="trait-card">
+          <img
+            src="https://placehold.co/300x300/12121A/22F7A9?text=Hair"
+            alt="Hair Trait"
+            class="trait-image"
+          />
+          <h3 class="trait-name">Hair</h3>
+          <p class="trait-desc">
+            Wild hairstyles that represent different music genres and eras.
+          </p>
+        </div>
+
+        <!-- Trait 7 -->
+        <div class="trait-card">
+          <img
+            src="https://placehold.co/300x300/12121A/FF3DAE?text=Eyes"
+            alt="Eyes Trait"
+            class="trait-image"
+          />
+          <h3 class="trait-name">Eyes</h3>
+          <p class="trait-desc">
+            Expressive eyes that convey emotion and personality.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Utility Section -->
+    <section class="utility" id="utility">
+      <h2 class="section-title">Collection Utility</h2>
+      <div class="utility-grid">
+        <!-- Panel A -->
+        <div class="utility-card">
+          <div class="badge">Generative</div>
+          <h3>Generative NFTs</h3>
+          <p>
+            Each Band Beanz NFT is uniquely generated from over 200 possible
+            traits, ensuring that no two NFTs are exactly alike. Our algorithm
+            ensures fair distribution of rare attributes across the collection.
+          </p>
+          <img
+            src="https://placehold.co/600x300/12121A/7B61FF?text=Generative+Art"
+            alt="Generative NFT Art"
+            class="utility-image"
+          />
+        </div>
+
+        <!-- Panel B -->
+        <div class="utility-card">
+          <div class="badge">Utility</div>
+          <h3>Ultimate Utility</h3>
+          <p>
+            Beyond digital ownership, Band Beanz provides real-world value
+            including concert tickets, meet-and-greets with artists, exclusive
+            merchandise, and voting rights on future collaborations.
+          </p>
+          <img
+            src="https://placehold.co/600x300/12121A/22F7A9?text=Concert+Access"
+            alt="Concert Access Utility"
+            class="utility-image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+      <h2 class="section-title">Roadmap</h2>
+      <div class="timeline">
+        <!-- Milestone 1 -->
+        <div class="milestone glass-panel">
+          <h3>Stage Banner 1 of 15</h3>
+          <ul>
+            <li>Collection concept and artwork development</li>
+            <li>Smart contract deployment on Ethereum</li>
+            <li>Website and minting dApp development</li>
+            <li>Community building on Discord and Twitter</li>
+          </ul>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="milestone glass-panel">
+          <h3>Private Jet Festival Experience</h3>
+          <ul>
+            <li>
+              Exclusive private jet trip to major music festival for 10 holders
+            </li>
+            <li>VIP backstage access and artist meetups</li>
+            <li>Luxury accommodation and curated experiences</li>
+          </ul>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="milestone glass-panel">
+          <h3>Custom 1/1 Creation & Giveaway</h3>
+          <ul>
+            <li>Weekly airdrops of rare traits to existing holders</li>
+            <li>Community vote on 10 custom 1/1 NFTs to be created</li>
+            <li>Special event to giveaway the custom NFTs to loyal holders</li>
+          </ul>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="milestone glass-panel">
+          <h3>Party for the Beanz</h3>
+          <ul>
+            <li>Exclusive holder-only event in a major music city</li>
+            <li>Live performances from featured artists</li>
+            <li>Special token airdrop for all attendees</li>
+          </ul>
+        </div>
+
+        <!-- Milestone 5 -->
+        <div class="milestone glass-panel">
+          <h3>Secret Raffles</h3>
+          <ul>
+            <li>Monthly secret raffles for exclusive merchandise</li>
+            <li>Signed memorabilia from famous musicians</li>
+            <li>Special edition physical items for holders only</li>
+          </ul>
+        </div>
+
+        <!-- Milestone 6 -->
+        <div class="milestone glass-panel">
+          <h3>App/Platform Development Begins</h3>
+          <ul>
+            <li>Development of dedicated platform for ticket redemption</li>
+            <li>Staking mechanism to earn rewards from secondary sales</li>
+            <li>Exclusive content portal for Band Beanz holders</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="accordion">
+        <!-- FAQ 1 -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>What are Band Beanz?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Band Beanz is a collection of 10,000 unique NFTs on the Ethereum
+              blockchain that provide both digital ownership and real-world
+              utility for music enthusiasts and concert-goers.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Why Band Beanz?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Our collection bridges the gap between digital NFT ownership and
+              real-world music experiences, offering ticket access, exclusive
+              events, and community benefits that grow over time.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>What is the minimum viable product?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="accordion-content">
+            <p>
+              The MVP includes the NFT collection itself, the smart contract for
+              minting and ownership tracking, a dedicated platform for redeeming
+              concert tickets, and the community governance system.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>When is the mint?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="accordion-content">
+            <p>
+              The public mint is scheduled for Q3 2023 with a mint price of 0.08
+              ETH. Whitelist participants will have early access 24 hours before
+              the public mint.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>How is rarity calculated?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Rarity is determined by the combination of traits each NFT
+              possesses. Some traits are much rarer than others, and the overall
+              rarity score is calculated based on the combined rarity of all
+              traits.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+      <h2 class="section-title">The Team</h2>
+      <div class="team-grid">
+        <!-- Team Member 1 -->
+        <div class="team-card">
+          <img
+            src="https://placehold.co/120x120/12121A/7B61FF?text=CB"
+            alt="Cardi Beanz"
+            class="team-avatar"
+          />
+          <h3 class="team-name">Cardi Beanz</h3>
+          <p class="team-bio">
+            Founder & Project Lead with 10+ years in music industry
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-discord-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-card">
+          <img
+            src="https://placehold.co/120x120/12121A/22F7A9?text=JB"
+            alt="Jazzy Beanz"
+            class="team-avatar"
+          />
+          <h3 class="team-name">Jazzy Beanz</h3>
+          <p class="team-bio">
+            Lead Artist & Creative Director specializing in generative art
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-discord-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-card">
+          <img
+            src="https://placehold.co/120x120/12121A/FF3DAE?text=DB"
+            alt="Drummy Beanz"
+            class="team-avatar"
+          />
+          <h3 class="team-name">Drummy Beanz</h3>
+          <p class="team-bio">
+            Smart Contract Developer with expertise in NFT protocols
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-discord-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-card">
+          <img
+            src="https://placehold.co/120x120/12121A/34D2FF?text=BB"
+            alt="Bassy Beanz"
+            class="team-avatar"
+          />
+          <h3 class="team-name">Bassy Beanz</h3>
+          <p class="team-bio">Community Manager & Music Partnerships lead</p>
+          <div class="social-links">
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-discord-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Team Member 5 -->
+        <div class="team-card">
+          <img
+            src="https://placehold.co/120x120/12121A/7B61FF?text=HB"
+            alt="Harmony Beanz"
+            class="team-avatar"
+          />
+          <h3 class="team-name">Harmony Beanz</h3>
+          <p class="team-bio">
+            Business Development & Artist Relations specialist
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-discord-line"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Band Beanz</h3>
+          <p>
+            Bringing music lovers together through NFT technology and exclusive
+            experiences.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#traits">NFTs</a></li>
+            <li><a href="#utility">Utility</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>Connect With Us</h4>
+          <div class="footer-social-links">
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-discord-line"></i></a>
+            <a href="#"><i class="ri-opensea-line"></i></a>
+            <a href="mailto:hello@bandbeanz.io"><i class="ri-mail-line"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2023 Band Beanz. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Wallet connection functionality
+      let walletConnected = false;
+      const connectWalletBtn = document.getElementById("connectWallet");
+
+      function connectWallet() {
+        if (!walletConnected) {
+          // Mock connection
+          walletConnected = true;
+          connectWalletBtn.innerHTML =
+            '<i class="ri-wallet-3-line"></i> 0x1234...ABCD';
+          // In a real implementation, we would call the wallet's connect method here
+          console.log("Wallet connected (simulated)");
+        } else {
+          // Mock disconnection
+          walletConnected = false;
+          connectWalletBtn.innerHTML =
+            '<i class="ri-wallet-3-line"></i> Connect Wallet';
+          console.log("Wallet disconnected (simulated)");
+        }
+      }
+
+      connectWalletBtn.addEventListener("click", connectWallet);
+
+      // Scroll effect for header
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Smooth scrolling for navigation
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          window.scrollTo({
+            top: section.offsetTop - 80,
+            behavior: "smooth",
+          });
+        }
+      }
+
+      // Accordion functionality for FAQs
+      function toggleAccordion(element) {
+        const content = element.nextElementSibling;
+        const isActive = content.classList.contains("active");
+
+        // Close all accordions
+        document.querySelectorAll(".accordion-content").forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        document.querySelectorAll(".accordion-header i").forEach((icon) => {
+          icon.classList.remove("ri-arrow-up-s-line");
+          icon.classList.add("ri-arrow-down-s-line");
+        });
+
+        // Open clicked accordion if it wasn't already active
+        if (!isActive) {
+          content.classList.add("active");
+          element.querySelector("i").classList.remove("ri-arrow-down-s-line");
+          element.querySelector("i").classList.add("ri-arrow-up-s-line");
+        }
+      }
+      const menuBtn = document.querySelector(".mobile-menu-btn");
+      const nav = document.querySelector("nav");
+      const menuIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+
+        // Change icon
+        if (nav.classList.contains("active")) {
+          menuIcon.classList.replace("ri-menu-line", "ri-close-line");
+        } else {
+          menuIcon.classList.replace("ri-close-line", "ri-menu-line");
+        }
+      });
+    </script>
+  </body>
+</html>
