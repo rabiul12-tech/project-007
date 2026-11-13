@@ -1,0 +1,1718 @@
+# PROJECT 007: MEDORA HEALTH — PREMIUM CLINIC & HEALTHCARE MANAGEMENT SAAS
+
+## YOUR ROLE
+
+Act as a world-class Healthcare SaaS Product Designer, Senior Next.js Engineer, Medical Workflow UX Specialist, and Frontend Systems Architect.
+
+Build a complete, visually exceptional, deeply interactive Clinic Management application named:
+
+**MEDORA Health**
+
+Tagline: Better Care. Better Operations.
+
+This is Project 007 in a portfolio of 20 premium web applications.
+
+The completed product must demonstrate the UI craftsmanship, functional depth, interaction quality, and engineering discipline associated with a professionally commissioned $10,000+ custom healthcare administration application.
+
+This is NOT a generic dashboard, static UI prototype, or medical-themed landing page.
+
+Build a complete, cohesive, browser-local healthcare operations demonstration.
+
+The most important experiences are:
+
+1. Patient 360° Workspace.
+2. Doctor Appointment Scheduler.
+3. Reception & Patient Queue.
+4. Consultation Workspace.
+5. Prescription and Invoice PDF Generation.
+6. Consistent LocalStorage persistence.
+
+## CRITICAL SAFETY AND SCOPE
+
+This application is exclusively for portfolio demonstration using fictional data.
+
+It is NOT:
+
+- A certified electronic health record system.
+- A regulated medical device.
+- A real clinical decision support system.
+- A secure patient database.
+- A compliant patient data processing system.
+- A production healthcare application.
+
+Do not use or request real patient information.
+
+Do not claim HIPAA, GDPR, or other healthcare privacy compliance.
+
+Do not generate clinical diagnoses, medication doses, or treatment plans automatically.
+
+Any clinical examples must be clearly fictional and non-actionable.
+
+The simulated prescription feature must not provide real prescribing capabilities.
+
+---
+
+# 1. TECHNOLOGY STACK
+
+Use:
+
+- Next.js App Router
+- React
+- TypeScript with strict typing
+- Tailwind CSS
+- shadcn/ui
+- Lucide React
+- Zustand for shared state where appropriate
+- FullCalendar or a reliable React scheduling library
+- Recharts
+- React Hook Form
+- Zod
+- date-fns
+- decimal.js for financial calculations
+- pdf-lib or jsPDF for client-side documents
+- LocalStorage for persistence
+- Vitest
+- React Testing Library
+- Playwright for critical workflows where supported
+
+Use stable, compatible dependencies.
+
+## ABSOLUTE RESTRICTIONS
+
+Do NOT use:
+
+- PostgreSQL
+- MySQL
+- MongoDB
+- Firebase
+- Supabase
+- Prisma
+- External databases
+- Backend servers
+- External authentication services
+- Paid APIs
+- Cloud medical records
+- Real payment gateways
+- Real pharmacy integrations
+- Real insurance APIs
+- External healthcare integrations
+
+All persistent data must remain in the user's browser.
+
+Use LocalStorage only.
+
+No real login is required.
+
+Provide instant access through a demo workspace.
+
+Use fictional patients, clinicians, organizations, and financial records.
+
+Do not store real medical, identity, insurance, or payment information.
+
+---
+
+# 2. PRODUCT VISION
+
+MEDORA Health helps a fictional outpatient clinic coordinate appointments, clinicians, patient visits, consultation documentation, billing, and administrative reporting.
+
+Target users:
+
+- Clinic Administrators
+- Receptionists
+- Practice Managers
+- Doctors in simulated workflows
+- Healthcare Operations Teams
+
+Main workflows:
+
+1. Register a demo patient.
+2. Manage fictional patient records.
+3. Configure doctor schedules.
+4. Book an appointment.
+5. Check appointment availability.
+6. Reschedule appointments.
+7. Check in arriving patients.
+8. Manage consultation queues.
+9. Record fictional consultation notes.
+10. Generate sample visit documents.
+11. Create invoices.
+12. Record simulated payments.
+13. Track clinic operations.
+14. Generate reports.
+
+All pages must work with one consistent application dataset.
+
+---
+
+# 3. PREMIUM VISUAL DESIGN SYSTEM
+
+Create an original, modern healthcare software visual identity.
+
+Design inspiration:
+
+- Cliniko
+- Jane App
+- Tebra
+- Modern hospital administration interfaces
+- Premium medical scheduling applications
+
+Do not copy proprietary layouts, logos, or artwork.
+
+## DESIGN PERSONALITY
+
+- Clean
+- Calm
+- Trustworthy
+- Professional
+- Human-centered
+- Organized
+- Accessible
+- Information-rich without visual clutter
+
+The application must feel distinct from the previous portfolio applications.
+
+## LIGHT MODE
+
+- App Background: #F7FAFC
+- Primary Surface: #FFFFFF
+- Sidebar: #FFFFFF
+- Primary Text: #173042
+- Secondary Text: #64748B
+- Border: #E2EAF0
+- Primary Accent: #0891B2
+- Secondary Accent: #0D9488
+- Success: #059669
+- Warning: #D97706
+- Danger: #DC2626
+- Soft Accent: #EAF8FB
+
+## DARK MODE
+
+- App Background: #0B1520
+- Sidebar: #11202D
+- Card Surface: #172B39
+- Elevated Surface: #203847
+- Primary Text: #F8FAFC
+- Secondary Text: #9BB0BE
+- Borders: #304B5B
+- Primary Accent: #22D3EE
+- Secondary Accent: #2DD4BF
+
+Use semantic theme tokens.
+
+## TYPOGRAPHY
+
+Use Geist or Inter.
+
+Maintain excellent readability for:
+
+- Patient names
+- Appointment times
+- Doctor names
+- Clinical status labels
+- Visit details
+- Financial amounts
+- Tables
+- Forms
+
+Use clearly distinguishable appointment statuses.
+
+Do not communicate status using color alone.
+
+## COMPONENT DESIGN
+
+- Refined 10–14px corner radii
+- Soft shadows
+- Professional status badges
+- Compact operational tables
+- Clear form labels
+- Elegant modal dialogs
+- Responsive detail drawers
+- Subtle interaction animations
+- Accessible navigation
+- Consistent spacing
+
+Avoid decorative medical clichés, excessive gradients, neon colors, and generic dashboard visuals.
+
+---
+
+# 4. APPLICATION SHELL
+
+Build a complete responsive AppShell.
+
+## SIDEBAR
+
+Top:
+
+- MEDORA logo
+- Demo clinic workspace selector
+- Clinic identity
+
+Navigation groups:
+
+WORKSPACE
+- Overview
+- Today's Queue
+- Appointments
+- Calendar
+
+PATIENT CARE DEMO
+- Patients
+- Consultations
+- Prescriptions
+- Visit History
+
+CLINIC OPERATIONS
+- Doctors
+- Services
+- Rooms
+- Staff
+
+FINANCIAL
+- Billing
+- Payments
+
+INSIGHTS
+- Analytics
+- Reports
+- Activity
+
+SYSTEM
+- Settings
+- Help
+
+Bottom:
+
+- Demo role selector
+- Profile
+- Theme toggle
+- Sidebar collapse
+
+Support:
+
+- Active route indicators
+- Collapsible sidebar
+- Icon-only mode
+- Tooltips
+- Mobile navigation drawer
+- Keyboard accessibility
+- Smooth transitions
+
+## TOPBAR
+
+Include:
+
+- Breadcrumbs
+- Global search
+- Date selector
+- Quick Create
+- Notifications
+- Theme toggle
+- Demo profile
+
+Quick Create actions:
+
+- Add Patient
+- Book Appointment
+- Add Doctor
+- Create Service
+- Create Invoice
+
+Every action must work.
+
+---
+
+# 5. REQUIRED APPLICATION PAGES
+
+## PAGE 01: /dashboard
+
+CLINIC OPERATIONS OVERVIEW.
+
+Include:
+
+- Today's Appointments
+- Checked-In Patients
+- Waiting Patients
+- In-Consultation Patients
+- Completed Appointments
+- Available Doctors
+- Pending Invoices
+- Collected Payments
+- Appointment Trend
+- Appointment Status Distribution
+- Doctor Workload
+- Today's Schedule
+- Recent Activity
+- Quick Actions
+
+Every metric must come from actual application records.
+
+Do not create unrelated hardcoded statistics.
+
+## PAGE 02: /dashboard/queue
+
+SIGNATURE FEATURE: RECEPTION & PATIENT QUEUE.
+
+Build an interactive queue workspace.
+
+Queue stages:
+
+- Scheduled
+- Checked In
+- Waiting
+- In Consultation
+- Completed
+- No-show
+- Cancelled
+
+Include:
+
+- Today's appointment queue
+- Appointment time
+- Patient name
+- Doctor
+- Service
+- Check-in status
+- Waiting duration
+- Queue position
+- Start consultation action
+- Complete consultation action
+- Mark no-show
+- Cancel appointment
+- Filter by doctor
+- Search
+- Queue status cards
+- Live-updating local timestamps where appropriate
+
+Queue changes must update the appointment records.
+
+Do not create separate unrelated queue data.
+
+No real-time synchronization across devices is claimed.
+
+## PAGE 03: /dashboard/appointments
+
+APPOINTMENT MANAGEMENT.
+
+Include:
+
+- Appointment table
+- Appointment ID
+- Patient
+- Doctor
+- Service
+- Appointment date
+- Start time
+- End time
+- Room
+- Status
+- Search
+- Sorting
+- Filtering
+- Pagination
+- Book appointment
+- Edit appointment
+- Reschedule appointment
+- Cancel appointment
+- Check in patient
+- Mark no-show
+- Appointment details drawer
+
+Statuses:
+
+- Scheduled
+- Confirmed
+- Checked In
+- Waiting
+- In Consultation
+- Completed
+- No-show
+- Cancelled
+
+Use a documented transition model.
+
+Prevent invalid status changes.
+
+All appointment updates must persist.
+
+## PAGE 04: /dashboard/calendar
+
+SIGNATURE FEATURE: DOCTOR SCHEDULING CALENDAR.
+
+Build a polished interactive scheduling calendar.
+
+Views:
+
+- Day
+- Week
+- Month
+- Doctor Schedule
+
+Features:
+
+- Doctor filter
+- Service filter
+- Room filter
+- Appointment status colors
+- Available slot visualization
+- Click available slot to book
+- Drag or edit to reschedule where practical
+- Appointment detail popover
+- Current time indicator
+- Working-hours display
+- Unavailable time blocks
+- Break times
+- Clinic holidays
+- Mobile agenda alternative
+
+When booking:
+
+1. Select patient.
+2. Select doctor.
+3. Select service.
+4. Choose date.
+5. Validate service duration.
+6. Find an available time slot.
+7. Check doctor availability.
+8. Check room availability where required.
+9. Prevent overlapping appointments.
+10. Save appointment.
+
+Calendar and Appointment List must share the same data.
+
+## PAGE 05: /dashboard/patients
+
+PATIENT DIRECTORY.
+
+Include:
+
+- Fictional patient list
+- Patient ID
+- Name
+- Age or birth year
+- Contact information using fictional data
+- Registration date
+- Last visit
+- Upcoming appointment
+- Status
+- Search
+- Filtering
+- Pagination
+- Add patient
+- Edit patient
+- Archive patient
+- Patient detail drawer
+- Patient profile navigation
+
+Never use real patient data.
+
+Avoid generating realistic government identification numbers.
+
+## PAGE 06: /dashboard/patients/[id]
+
+SIGNATURE FEATURE: PATIENT 360° WORKSPACE.
+
+Create an exceptional patient detail interface.
+
+Header:
+
+- Patient avatar or initials
+- Fictional patient ID
+- Name
+- Age or birth year
+- Contact information
+- Appointment status
+- Quick actions
+
+Tabs:
+
+1. Overview
+2. Appointments
+3. Visit Timeline
+4. Consultation Notes
+5. Sample Documents
+6. Billing
+7. Activity
+
+Overview:
+
+- Patient summary
+- Upcoming appointment
+- Last visit
+- Assigned doctor where applicable
+- Appointment history
+- Administrative notes
+
+Appointments:
+
+- Appointment list
+- Appointment detail
+- Reschedule action
+- Booking action
+
+Visit Timeline:
+
+- Fictional consultations
+- Visit date
+- Doctor
+- Service
+- Visit status
+
+Consultation Notes:
+
+- Demo consultation documentation.
+
+Sample Documents:
+
+- Downloadable fictional visit summaries and sample prescription documents.
+
+Billing:
+
+- Related invoices
+- Payment records
+- Outstanding balances
+
+Activity:
+
+- Patient record changes and related administrative actions.
+
+Every tab must reference the same patient ID.
+
+Do not create disconnected hardcoded information.
+
+## PAGE 07: /dashboard/consultations
+
+CLINICAL WORKSPACE DEMONSTRATION.
+
+This is a UI and workflow demonstration only.
+
+Include:
+
+- Scheduled consultations
+- Active consultations
+- Completed consultations
+- Patient navigation
+- Doctor assignment
+- Visit date
+- Appointment association
+- Consultation status
+
+Consultation detail sections:
+
+- Visit overview
+- Fictional reason for visit
+- Demo observations
+- Clinician-entered free-text notes
+- Non-actionable sample assessment text
+- Administrative follow-up
+- Sample document generation
+- Finish consultation
+
+Do not automatically diagnose conditions.
+
+Do not automatically recommend medication or dosage.
+
+Do not present generated content as medical advice.
+
+Use clearly fictional, prewritten example notes.
+
+Only user-entered demo data should be added to the simulated clinical record.
+
+## PAGE 08: /dashboard/prescriptions
+
+SAMPLE PRESCRIPTION DOCUMENT WORKSPACE.
+
+Build a polished document-generation demonstration.
+
+Include:
+
+- Sample prescription list
+- Related fictional patient
+- Demo doctor
+- Visit date
+- Document reference
+- Sample document preview
+- Print
+- PDF download
+
+Document layout:
+
+- Demo clinic name
+- Clearly visible "SAMPLE — NOT VALID FOR MEDICAL USE" watermark
+- Fictional patient name
+- Fictional clinician name
+- Visit date
+- Non-actionable sample entries
+- Demo notes
+- Footer disclaimer
+
+Do not generate actual medication orders, real dosages, or actionable prescriptions.
+
+Do not generate a real-looking handwritten or digital doctor signature.
+
+The PDF must clearly state it is not valid for pharmacy dispensing or clinical use.
+
+## PAGE 09: /dashboard/visits
+
+VISIT HISTORY.
+
+Include:
+
+- Visit list
+- Visit ID
+- Patient
+- Doctor
+- Appointment
+- Service
+- Visit date
+- Status
+- Visit details
+- Search
+- Filters
+- Print-friendly summary
+- Fictional visit report
+
+Visits must reference valid patients, doctors, and appointments.
+
+Avoid duplicate visit creation from repeated consultation actions.
+
+## PAGE 10: /dashboard/doctors
+
+DOCTOR MANAGEMENT.
+
+Include:
+
+- Doctor directory
+- Fictional doctor profiles
+- Specialty
+- Availability
+- Consultation duration
+- Assigned services
+- Assigned rooms
+- Appointment count
+- Working schedule
+- Add doctor
+- Edit doctor
+- Archive doctor
+- Doctor details
+- Doctor calendar
+- Availability configuration
+
+Do not invent real medical credentials.
+
+Use fictional clinicians and avoid presenting them as real practitioners.
+
+## PAGE 11: /dashboard/services
+
+CLINIC SERVICE MANAGEMENT.
+
+Include:
+
+- Service list
+- Service name
+- Category
+- Duration
+- Price
+- Description
+- Assigned clinicians
+- Availability
+- Create service
+- Edit service
+- Archive service
+- Search
+- Filtering
+
+A service's duration must influence appointment scheduling.
+
+Service price must populate billing when selected.
+
+Historical invoices must retain their original price snapshots.
+
+## PAGE 12: /dashboard/rooms
+
+ROOM & RESOURCE MANAGEMENT.
+
+Include:
+
+- Room directory
+- Room name
+- Room code
+- Room type
+- Availability
+- Assigned appointments
+- Schedule view
+- Create room
+- Edit room
+- Archive room
+
+Prevent room scheduling conflicts for appointments requiring exclusive room use.
+
+## PAGE 13: /dashboard/staff
+
+STAFF DIRECTORY.
+
+Include:
+
+- Fictional staff list
+- Role
+- Department
+- Status
+- Assigned operational area
+- Work schedule
+- Add staff
+- Edit staff
+- Archive staff
+
+Support demo roles:
+
+- Clinic Administrator
+- Receptionist
+- Doctor
+- Billing Staff
+
+Role selection only changes simulated interface behavior.
+
+It does not provide real security.
+
+## PAGE 14: /dashboard/billing
+
+CLINIC BILLING WORKSPACE.
+
+Include:
+
+- Invoice list
+- Invoice number
+- Patient
+- Appointment
+- Service
+- Issue date
+- Due date
+- Subtotal
+- Discount
+- Tax where configured
+- Total amount
+- Amount paid
+- Outstanding balance
+- Status
+- Create invoice
+- Edit draft invoice
+- Record payment
+- Void eligible invoice
+- Print invoice
+- Download PDF
+
+Statuses:
+
+- Draft
+- Issued
+- Partially Paid
+- Paid
+- Voided
+
+Use decimal.js for financial calculations.
+
+Do not process real payments.
+
+Do not claim insurance billing integration.
+
+## PAGE 15: /dashboard/payments
+
+PAYMENT RECORDS.
+
+Include:
+
+- Payment list
+- Amount
+- Payment date
+- Related invoice
+- Fictional patient
+- Payment method label
+- Payment reference
+- Notes
+- Record payment
+- Reverse incorrect payment
+- Search
+- Filtering
+- CSV export
+
+Prevent invalid payment allocations.
+
+Support partial payments.
+
+Ensure invoice balances reconcile.
+
+No real money is transferred.
+
+## PAGE 16: /dashboard/analytics
+
+CLINIC ANALYTICS.
+
+Include:
+
+- Appointment trends
+- Doctor utilization
+- Booking status distribution
+- No-show rate
+- Completed visits
+- Service popularity
+- Patient registration trend
+- Payment collection
+- Outstanding invoices
+- Average waiting time where records support it
+- Date range filtering
+
+All metrics must use the same application data.
+
+Document calculation definitions.
+
+Avoid clinical quality scores or patient outcome claims without appropriate supporting data.
+
+## PAGE 17: /dashboard/reports
+
+REPORTING CENTER.
+
+Include:
+
+- Appointment Report
+- Doctor Schedule Report
+- Clinic Operations Report
+- Service Usage Report
+- No-show Report
+- Billing Summary
+- Payment Report
+- Patient Registration Summary
+
+Support:
+
+- Date range
+- Doctor filter
+- Service filter
+- Status filter
+- CSV export
+- Print-friendly report
+- Saved report configurations
+
+Avoid exporting detailed fictional clinical records by default.
+
+Reports should focus on administrative demo data.
+
+## PAGE 18: /dashboard/activity
+
+ACTIVITY TIMELINE.
+
+Include:
+
+- Patient registered
+- Appointment booked
+- Appointment rescheduled
+- Patient checked in
+- Consultation started
+- Consultation completed
+- Invoice created
+- Payment recorded
+- Schedule updated
+
+Support:
+
+- Event filtering
+- Date filtering
+- Related record navigation
+- Demo actor display
+
+This is a local activity feed, not a tamper-proof clinical audit trail.
+
+## PAGE 19: /dashboard/settings
+
+CLINIC SETTINGS.
+
+Include:
+
+- Clinic name
+- Demo logo
+- Address
+- Contact information
+- Operating hours
+- Week start
+- Timezone
+- Appointment slot interval
+- Default service duration
+- Cancellation rules
+- Doctor schedule defaults
+- Currency
+- Invoice settings
+- Theme
+- Sidebar preferences
+- Notification settings
+- JSON backup
+- JSON restore
+- Reset demo data
+
+All settings must persist locally.
+
+## PAGE 20: /dashboard/help
+
+HELP & DOCUMENTATION.
+
+Include:
+
+- Getting started
+- Patient directory
+- Booking appointments
+- Doctor scheduling
+- Reception queue
+- Consultation demo
+- Sample document generation
+- Clinic billing
+- Reports
+- LocalStorage limitations
+- Privacy disclaimer
+- Backup and restore
+- Frequently asked questions
+
+---
+
+# 6. APPOINTMENT SCHEDULING ENGINE
+
+THIS IS THE MOST IMPORTANT BUSINESS LOGIC.
+
+Build a centralized scheduling engine.
+
+Do not implement independent scheduling rules in unrelated components.
+
+## REQUIRED VALIDATIONS
+
+When creating an appointment:
+
+1. Patient must exist.
+2. Doctor must exist and be active.
+3. Service must exist and be active.
+4. Doctor must provide the selected service.
+5. Date must be valid.
+6. Duration must be positive.
+7. Appointment must fit within available hours.
+8. Appointment must not conflict with doctor breaks.
+9. Appointment must not overlap another active booking for that doctor.
+10. Required room must be available.
+11. Clinic closures must be respected.
+12. Canceled appointments must not block availability.
+
+Use half-open time intervals:
+
+[startTime, endTime)
+
+Two appointments overlap if:
+
+startA < endB AND startB < endA
+
+This allows one appointment to begin exactly when another ends.
+
+Use consistent local timezone handling.
+
+Store instants consistently and separately preserve the clinic's timezone configuration.
+
+Do not create slots by assuming every calendar day has the same number of hours.
+
+Handle daylight-saving behavior where applicable.
+
+## RESCHEDULING
+
+- Revalidate doctor availability.
+- Revalidate room availability.
+- Preserve appointment identity.
+- Record the change in local activity.
+- Update the calendar and queue immediately.
+
+## BOOKING STATUS
+
+Use validated state transitions.
+
+Do not allow completed appointments to be silently transformed back into active bookings without explicit correction rules.
+
+---
+
+# 7. PATIENT & VISIT DATA MODELS
+
+Create strongly typed models:
+
+- Patient
+- Doctor
+- ClinicStaff
+- ClinicService
+- ClinicRoom
+- DoctorAvailability
+- ScheduleException
+- Appointment
+- Consultation
+- Visit
+- DemoDocument
+- Invoice
+- InvoiceLine
+- Payment
+- Activity
+- Notification
+- WorkspaceSettings
+
+Use stable IDs.
+
+Relationships:
+
+- Appointment references Patient.
+- Appointment references Doctor.
+- Appointment references Service.
+- Appointment may reference Room.
+- Visit references Appointment.
+- Consultation references Visit.
+- Invoice may reference Appointment and Service.
+- Payment references Invoice.
+- DemoDocument references Visit.
+
+Prevent orphaned records.
+
+Use archive policies rather than deleting important historical records indiscriminately.
+
+Protect historical billing snapshots when service prices change.
+
+---
+
+# 8. LOCALSTORAGE ARCHITECTURE
+
+Build a versioned, centralized persistence system.
+
+Suggested keys:
+
+medora:version
+medora:data
+medora:settings
+medora:ui
+
+Requirements:
+
+- Safe initialization
+- Zod validation
+- Deterministic seed data
+- Schema migrations
+- Typed repositories
+- Corrupt data handling
+- Storage quota handling
+- JSON backup
+- JSON restore
+- Reset demo data
+- Stable identifiers
+- Consistent cross-page updates
+- Safe Next.js hydration
+
+Never scatter LocalStorage writes across unrelated components.
+
+Do not overwrite user edits on refresh.
+
+Do not persist large image or PDF blobs.
+
+Generate downloadable PDFs on demand.
+
+Only use fictional data in the application and documentation.
+
+---
+
+# 9. REALISTIC FICTIONAL DEMO DATA
+
+Create a coherent fictional outpatient clinic dataset.
+
+Suggested:
+
+- 150 Fictional Patients
+- 12 Fictional Doctors
+- 18 Clinic Services
+- 8 Rooms
+- 15 Fictional Staff Members
+- 350 Appointments
+- 200 Completed Visits
+- 100 Sample Consultation Notes
+- 75 Sample Documents
+- 200 Invoices
+- 250 Payment Records
+- 350 Activity Records
+
+Use multiple months of history.
+
+Include:
+
+- Scheduled appointments
+- Confirmed appointments
+- Checked-in patients
+- Waiting patients
+- Completed visits
+- Canceled appointments
+- No-shows
+- Partial payments
+- Paid invoices
+- Outstanding balances
+- Doctor availability changes
+
+Ensure all records are logically connected.
+
+Do not create appointments with nonexistent doctors or patients.
+
+Do not generate actionable clinical records.
+
+Use deterministic seed generation.
+
+Prioritize data consistency over exact record counts.
+
+---
+
+# 10. RECEPTION QUEUE ENGINE
+
+Implement queue statuses using the appointment state.
+
+Requirements:
+
+- Patient check-in records a timestamp.
+- Waiting status reflects queue state.
+- Consultation start records a timestamp.
+- Consultation completion records a timestamp.
+- Completed appointments leave active queue.
+- No-show appointments leave active queue.
+- Canceled appointments leave active queue.
+- Queue counts update across all pages.
+
+Prevent duplicate visit creation.
+
+Waiting duration must be calculated from valid timestamps.
+
+If a timestamp is missing, display an appropriate placeholder rather than inventing a duration.
+
+---
+
+# 11. BILLING CALCULATION ENGINE
+
+Use decimal.js or integer minor units.
+
+Calculate:
+
+Line Amount = Quantity × Unit Price
+
+Taxable Amount = Line Amount − Applicable Discount
+
+Tax = Taxable Amount × Configured Tax Rate
+
+Invoice Total = Sum of Line Totals + Taxes + Additional Charges
+
+Outstanding Balance = Invoice Total − Valid Payments
+
+Use consistent rounding.
+
+Support:
+
+- Partial payments
+- Full payments
+- Voided invoices
+- Payment corrections
+- Discounts
+- Configurable taxes
+
+Do not count unpaid invoices as cash received.
+
+Do not double-count reversed payments.
+
+All calculations must be documented.
+
+---
+
+# 12. CLIENT-SIDE PDF GENERATION
+
+Generate:
+
+1. Sample Prescription PDF
+2. Visit Summary PDF
+3. Invoice PDF
+
+PDF documents must:
+
+- Render professionally.
+- Use consistent document data.
+- Support A4.
+- Handle page breaks.
+- Include appropriate document metadata.
+- Avoid clipping.
+- Be printable.
+
+Sample clinical documents must prominently state:
+
+"SAMPLE — NOT VALID FOR MEDICAL USE"
+
+Avoid real clinician signatures.
+
+Use safe fictional content.
+
+Invoice PDF must reconcile with the billing records.
+
+---
+
+# 13. GLOBAL SEARCH
+
+Ctrl/Cmd + K opens command palette.
+
+Search:
+
+- Patients
+- Doctors
+- Appointments
+- Services
+- Invoices
+- Application pages
+
+Commands:
+
+- Add Patient
+- Book Appointment
+- Open Calendar
+- Open Today's Queue
+- Create Invoice
+- Switch Theme
+
+Support keyboard navigation and accessible focus management.
+
+All search results must navigate to actual records.
+
+---
+
+# 14. PREMIUM COMPONENT LIBRARY
+
+Build reusable components:
+
+- AppShell
+- Sidebar
+- Topbar
+- PatientCard
+- PatientProfile
+- DoctorCard
+- DoctorSchedule
+- AppointmentCalendar
+- AppointmentBookingDialog
+- AvailableSlots
+- QueueBoard
+- QueueStatusCard
+- ConsultationWorkspace
+- VisitTimeline
+- SampleDocumentPreview
+- InvoiceTable
+- PaymentDialog
+- KPIStatCard
+- ChartCard
+- DateRangePicker
+- FilterToolbar
+- DataTable
+- DetailDrawer
+- ConfirmDialog
+- EmptyState
+- LoadingSkeleton
+- Toast
+- CommandPalette
+- ThemeToggle
+
+All components must use one consistent design system.
+
+---
+
+# 15. RESPONSIVE DESIGN
+
+Support:
+
+- 360px mobile
+- 390px mobile
+- 768px tablet
+- 1024px laptop
+- 1440px desktop
+- 1920px wide desktop
+
+Desktop:
+
+- Full sidebar
+- Doctor calendar
+- Dense appointment tables
+- Patient detail panels
+- Consultation workspace
+
+Tablet:
+
+- Collapsible sidebar
+- Adaptive calendar
+- Responsive tables
+
+Mobile:
+
+- Navigation drawer
+- Appointment agenda view
+- Patient cards
+- Touch-friendly booking workflow
+- Responsive profile tabs
+- Functional queue management
+- Accessible dialogs
+- No accidental page overflow
+
+Do not hide essential functionality on smaller screens.
+
+---
+
+# 16. ACCESSIBILITY
+
+Target WCAG 2.2 AA.
+
+Include:
+
+- Semantic HTML
+- Keyboard navigation
+- Focus management
+- Accessible forms
+- Calendar keyboard controls
+- Visible focus states
+- Appropriate contrast
+- Clear validation errors
+- Screen-reader-friendly status labels
+- Reduced-motion support
+
+Appointment status must not rely on color alone.
+
+---
+
+# 17. PERFORMANCE
+
+Optimize:
+
+- Appointment calendar rendering
+- Patient search
+- Large tables
+- Schedule calculations
+- Availability filtering
+- LocalStorage persistence
+- Analytics charts
+- PDF generation
+
+Use memoization appropriately.
+
+Avoid expensive calculations on unrelated UI updates.
+
+Lazy-load heavy PDF code where useful.
+
+---
+
+# 18. TESTING REQUIREMENTS
+
+Create automated tests for:
+
+1. Patient creation.
+2. Patient editing.
+3. Patient archiving.
+4. Doctor creation.
+5. Doctor availability.
+6. Service duration validation.
+7. Appointment creation.
+8. Appointment conflict detection.
+9. Back-to-back appointment acceptance.
+10. Doctor break exclusion.
+11. Clinic closure exclusion.
+12. Room conflict detection.
+13. Appointment rescheduling.
+14. Appointment cancellation.
+15. Appointment status transitions.
+16. Queue check-in.
+17. Waiting state.
+18. Consultation start.
+19. Consultation completion.
+20. Duplicate visit prevention.
+21. No-show handling.
+22. Patient visit history.
+23. Sample document generation.
+24. Prescription disclaimer in PDF.
+25. Invoice creation.
+26. Billing calculations.
+27. Partial payment.
+28. Full payment.
+29. Payment reversal.
+30. Invoice PDF generation.
+31. Analytics consistency.
+32. Global search.
+33. Filtering.
+34. Sorting.
+35. Pagination.
+36. CSV export.
+37. JSON backup.
+38. JSON restore.
+39. Corrupt LocalStorage recovery.
+40. Reset demo data.
+41. Theme persistence.
+42. Mobile navigation.
+43. Timezone and date handling.
+44. Cross-page data consistency.
+
+Run:
+
+- TypeScript typecheck
+- ESLint
+- Vitest
+- Critical browser tests where supported
+- Production build
+
+Never claim unexecuted tests passed.
+
+---
+
+# 19. PROJECT ARCHITECTURE
+
+Suggested structure:
+
+src/
+  app/
+    page.tsx
+    dashboard/
+      page.tsx
+      queue/
+      appointments/
+      calendar/
+      patients/
+      consultations/
+      prescriptions/
+      visits/
+      doctors/
+      services/
+      rooms/
+      staff/
+      billing/
+      payments/
+      analytics/
+      reports/
+      activity/
+      settings/
+      help/
+  components/
+    layout/
+    ui/
+    patients/
+    appointments/
+    calendar/
+    queue/
+    consultations/
+    billing/
+    documents/
+    charts/
+    tables/
+    forms/
+  features/
+    patients/
+    doctors/
+    scheduling/
+    appointments/
+    visits/
+    billing/
+    reporting/
+  lib/
+    scheduling/
+    storage/
+    calculations/
+    validation/
+    seed/
+    pdf/
+    export/
+  stores/
+  hooks/
+  types/
+  tests/
+
+Use maintainable feature-based organization.
+
+Keep scheduling, billing, and data validation separate from UI components.
+
+Avoid monolithic files.
+
+---
+
+# 20. IMPLEMENTATION PHASES
+
+PHASE 1: Visual Foundation
+- Initialize Next.js
+- Design tokens
+- AppShell
+- Sidebar
+- Topbar
+- Themes
+- Responsive navigation
+
+PHASE 2: Data Architecture
+- TypeScript entities
+- Relationships
+- LocalStorage
+- Seed dataset
+- Validation
+- State management
+
+PHASE 3: Patient & Clinic Core
+- Patient CRUD
+- Patient 360° View
+- Doctor CRUD
+- Services
+- Rooms
+- Staff
+
+PHASE 4: Scheduling
+- Doctor availability
+- Appointment booking
+- Conflict detection
+- Calendar
+- Rescheduling
+
+PHASE 5: Clinic Operations
+- Reception queue
+- Check-in
+- Consultation demo
+- Visit history
+- Sample documents
+
+PHASE 6: Financial
+- Invoices
+- Payment recording
+- Billing calculations
+- PDF generation
+
+PHASE 7: Reporting
+- Dashboard
+- Analytics
+- Reports
+- Activity feed
+
+PHASE 8: Quality
+- Settings
+- Help
+- Mobile refinements
+- Accessibility
+- Automated tests
+- Production build
+
+Maintain a working application after each phase.
+
+---
+
+# 21. STRICT QUALITY RULES
+
+DO NOT:
+
+- Build a static medical dashboard.
+- Create fake doctor availability.
+- Allow overlapping doctor appointments.
+- Use disconnected queue data.
+- Create duplicate visit records.
+- Use real patient information.
+- Generate actual medical advice.
+- Generate actionable prescriptions.
+- Claim healthcare regulatory compliance.
+- Claim secure medical record storage.
+- Claim real pharmacy integration.
+- Claim real payment processing.
+- Use external databases.
+- Require a backend.
+- Leave placeholder pages.
+- Use Lorem Ipsum.
+- Include nonfunctional controls.
+- Ignore mobile responsiveness.
+- Ignore accessibility.
+- Claim unverified tests passed.
+
+Every major administrative workflow must be functional within the browser-local demo.
+
+---
+
+# 22. DELIVERABLES
+
+Deliver:
+
+1. Complete Next.js source code.
+2. Original MEDORA Health branding.
+3. Premium Clinic Dashboard.
+4. Patient Management.
+5. Patient 360° Workspace.
+6. Doctor Management.
+7. Appointment Scheduling.
+8. Interactive Calendar.
+9. Reception Queue.
+10. Consultation Demo.
+11. Visit History.
+12. Sample Prescription PDF.
+13. Visit Summary PDF.
+14. Clinic Services.
+15. Room Management.
+16. Staff Directory.
+17. Billing.
+18. Payment Simulation.
+19. Clinic Analytics.
+20. Reports.
+21. Activity Timeline.
+22. Settings.
+23. Help Documentation.
+24. Global Search.
+25. Light and Dark Mode.
+26. Responsive Layouts.
+27. LocalStorage persistence.
+28. JSON backup and restore.
+29. CSV exports.
+30. Automated tests.
+31. README.md.
+32. Vercel-compatible production build.
+
+README must contain:
+
+"Portfolio Demonstration vs Production Healthcare Software"
+
+Explain that the application uses fictional data, simulated clinical workflows, browser-local persistence, no real authentication, and no healthcare compliance certification.
+
+---
+
+# 23. FINAL ACCEPTANCE GATE
+
+Do not report completion unless:
+
+- Every route renders.
+- Patients can be created and edited.
+- Doctor schedules work.
+- Appointment booking works.
+- Overlapping appointments are prevented.
+- Rescheduling validates availability.
+- Calendar and appointment list remain consistent.
+- Reception queue works.
+- Consultation state transitions work.
+- Duplicate visits are prevented.
+- Sample documents display their disclaimers.
+- Invoice and payment calculations reconcile.
+- PDF exports work.
+- Analytics reflect current records.
+- Search and filtering work.
+- LocalStorage survives refresh.
+- JSON backup and restore work.
+- Light and Dark Mode are polished.
+- Mobile booking and queue workflows work.
+- No critical dead controls remain.
+- No backend is required.
+- No database is required.
+- Production build passes.
+- Test results are reported accurately.
+
+If anything is unfinished, clearly list the remaining functionality.
+
+---
+
+# FINAL INSTRUCTION
+
+Build MEDORA Health as a sophisticated, original, highly interactive healthcare administration portfolio application.
+
+Prioritize:
+
+1. Patient 360° Workspace.
+2. Doctor Scheduling Calendar.
+3. Appointment Conflict Prevention.
+4. Reception Queue Management.
+5. Consultation Demonstration.
+6. Professional Sample PDFs.
+7. Clinic Billing.
+8. Reliable LocalStorage persistence.
+
+The application must look and behave like carefully designed professional software, while being transparent about its browser-local and non-clinical limitations.
+
+Start with architecture, scheduling rules, data relationships, and the design system. Implement the product systematically and verify each major workflow.

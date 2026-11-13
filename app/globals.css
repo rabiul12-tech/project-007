@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-canvas: #F7FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+  --bg-elevated: #F1F5F9;
+  --text-primary: #173042;
+  --text-secondary: #64748B;
+  --border-subtle: #E2EAF0;
+  --accent-primary: #0891B2;
+  --accent-secondary: #0D9488;
+  --accent-soft: #EAF8FB;
+  --status-success: #059669;
+  --status-warning: #D97706;
+  --status-danger: #DC2626;
+}
+
+.dark {
+  --bg-canvas: #0B1520;
+  --bg-surface: #172B39;
+  --bg-sidebar: #11202D;
+  --bg-elevated: #203847;
+  --text-primary: #F8FAFC;
+  --text-secondary: #9BB0BE;
+  --border-subtle: #304B5B;
+  --accent-primary: #22D3EE;
+  --accent-secondary: #2DD4BF;
+  --accent-soft: #132C3B;
+  --status-success: #10B981;
+  --status-warning: #F59E0B;
+  --status-danger: #EF4444;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

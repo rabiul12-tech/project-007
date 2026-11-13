@@ -1,0 +1,6 @@
+{
+  "name": "MEDORA Health",
+  "description": "Premium Clinic & Healthcare Operations Management SaaS — Better Care. Better Operations. Interactive Patient 360° Workspace, Doctor Scheduling Calendar, Reception Queue, Clinical Documentation Demo, and Billing Engine.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
